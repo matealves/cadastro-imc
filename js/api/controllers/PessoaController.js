@@ -23,7 +23,7 @@ export class PessoaController {
   constructor() {
     this._inputNome = document.querySelector("#nome");
     this._inputIdade = document.querySelector("#idade");
-    this._inpuItPeso = document.querySelector("#peso");
+    this._inputPeso = document.querySelector("#peso");
     this._inputAltura = document.querySelector("#altura");
 
     ////////////////////////////////////////////////
