@@ -296,6 +296,8 @@ td {
 @media (max-width: 480px) {
   .modal {
     top: 100%;
+    display: flex;
+    justify-content: center;
     transition: all 1s ease;
 
     &.active {
@@ -303,8 +305,8 @@ td {
     }
 
     &-content {
-      margin: 25% auto;
-      width: 95%;
+      margin: 45% auto;
+      width: 85%;
       position: fixed;
     }
   }
