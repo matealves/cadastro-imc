@@ -30,7 +30,7 @@ formApagarEditar.addEventListener("submit", (event) => {
 btnApagar.addEventListener("click", () => {
   let id = document.querySelector("#id").value;
 
-  if (id == "") {
+  if (id == "" || !pessoaController.buscaPorId(id)) {
     ModalHelper.ocultarBotoes();
     ModalHelper.modal("Tente novamente", "ID não encontrado.");
     return;
@@ -56,7 +56,7 @@ btnApagar.addEventListener("click", () => {
 btnEditar.addEventListener("click", () => {
   let id = document.querySelector("#id").value;
 
-  if (id == "") {
+  if (id == "" || !pessoaController.buscaPorId(id)) {
     ModalHelper.ocultarBotoes();
     ModalHelper.modal("Tente novamente", "ID não encontrado.");
     return;
