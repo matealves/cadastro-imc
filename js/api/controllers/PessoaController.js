@@ -138,7 +138,6 @@ export class PessoaController {
 
     // atualizar a view
     this._pessoasView.update(this._listaPessoas);
-    document.querySelector("#idPessoa").value = null;
   }
 
   buscaPorId(id) {

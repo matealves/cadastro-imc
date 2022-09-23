@@ -11,8 +11,17 @@ formulario.addEventListener("submit", (event) => {
   // adicionar pessoa
   pessoaController.adiciona(event);
 
+  const id = document.querySelector("#idPessoa").value;
+
   ModalHelper.ocultarBotoes();
-  ModalHelper.modal("Cadastro", "Pessoa cadastrada ou atualizada!");
+  if (!id) {
+    ModalHelper.modal("Cadastro", "Pessoa cadastrada com sucesso!");
+    pessoaController._limpaFormulario();
+    return;
+  }
+
+  ModalHelper.modal("Editar cadastro", "Cadastro atualizado com sucesso!");
+  document.querySelector("#idPessoa").value = null;
 
   // limpar formulario
   pessoaController._limpaFormulario();
