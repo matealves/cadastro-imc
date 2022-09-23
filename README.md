@@ -24,7 +24,7 @@
 
 <!-- <h1 align="center"> -->
 <h3>
-<a href="https://matealves.github.io/cadastro-de-imc/" target="_blank">Testar (preview)</a> 
+<a href="https://matealves.github.io/cadastro-imc/" target="_blank">Testar (preview)</a> 
 </h3>
 
 <!-- <p align = "center">
