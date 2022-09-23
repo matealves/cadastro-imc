@@ -33,24 +33,24 @@ btnApagar.addEventListener("click", () => {
   if (id == "") {
     ModalHelper.ocultarBotoes();
     ModalHelper.modal("Tente novamente", "ID não encontrado.");
-  } else {
-    console.log("Apagar registro " + id);
-
-    document.querySelector("#id").value = null;
-
-    ////// INTERACOES COM A JANELA MODAL //////
-    ModalHelper.mostrarBotoes();
-    // abrir janela modal - titulo, mensagem
-    ModalHelper.modal("Apagar registro", `Deseja apagar o registro ${id} ?`);
-
-    // se cliar no botao sim
-    document.querySelector("#sim").addEventListener("click", () => {
-      pessoaController.apaga(id);
-      id = null; // apagar o id IMPORTANTE!!!
-      ModalHelper.closeModal();
-    });
-    ////// INTERACOES COM A JANELA MODAL //////
+    return;
   }
+
+  console.log("Apagar registro " + id);
+  document.querySelector("#id").value = null;
+
+  ////// INTERACOES COM A JANELA MODAL //////
+  ModalHelper.mostrarBotoes();
+  // abrir janela modal - titulo, mensagem
+  ModalHelper.modal("Apagar registro", `Deseja apagar o registro ${id} ?`);
+
+  // se cliar no botao sim
+  document.querySelector("#sim").addEventListener("click", () => {
+    pessoaController.apaga(id);
+    id = null; // apagar o id IMPORTANTE!!!
+    ModalHelper.closeModal();
+  });
+  ////// INTERACOES COM A JANELA MODAL //////
 });
 
 btnEditar.addEventListener("click", () => {
@@ -59,29 +59,28 @@ btnEditar.addEventListener("click", () => {
   if (id == "") {
     ModalHelper.ocultarBotoes();
     ModalHelper.modal("Tente novamente", "ID não encontrado.");
-  } else {
-    // rolar pagina para cima
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
+    return;
+  }
+  // rolar pagina para cima
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
 
-    document.querySelector("#nome").focus();
+  document.querySelector("#nome").focus();
 
-    let id = document.querySelector("#id").value;
-    console.log("Editar registro " + id);
+  console.log("Editar registro " + id);
 
-    document.querySelector("#idPessoa").value = id;
-    document.querySelector("#id").value = null;
+  document.querySelector("#idPessoa").value = id;
+  document.querySelector("#id").value = null;
 
-    let pessoa = pessoaController.buscaPorId(id);
+  let pessoa = pessoaController.buscaPorId(id);
 
-    if (pessoa) {
-      let { _nome, _idade, _peso, _altura } = pessoa;
-      // preencher o formulario com os dados
-      pessoaController.preencheFormulario(_nome, _idade, _peso, _altura);
-    }
+  if (pessoa) {
+    let { _nome, _idade, _peso, _altura } = pessoa;
+    // preencher o formulario com os dados
+    pessoaController.preencheFormulario(_nome, _idade, _peso, _altura);
   }
 });
 
